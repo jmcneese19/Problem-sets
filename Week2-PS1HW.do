@@ -21,8 +21,11 @@ cap log close
 
 set logtype text
 *log your stats session in text
- 
-cd C:\Users\Jazmyne\Desktop\Stata\Datamanagement\data 
+
+cd C:\Users\Jazmyne\Desktop\Stata\Datamanagement\working
+
+use "https://docs.google.com/uc?id=1mLpl7OMdCKMteSvUbrGLaTMc_cCYLb3D&export=download", clear
+*cd C:\Users\Jazmyne\Desktop\Stata\Datamanagement\data 
 *go to the folder with the data
 *Navagating directories 
 *PWD - where am I
@@ -54,11 +57,11 @@ sum
 save, replace
 *save data set
 
-export excel using "C:\Users\Jazmyne\Desktop\Stata\Datamanagement\working", replace
+export excel using sch, replace
 
-export delimited using "C:\Users\Jazmyne\Desktop\Stata\Datamanagement\working", replace
+export delimited using sch, replace
 
-export dbase using "C:\Users\Jazmyne\Desktop\Stata\Datamanagement\working", replace
+export dbase using sch, replace
 
 
 //---------------------------data mgmt notes ----------------------------------------------
