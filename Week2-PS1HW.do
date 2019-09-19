@@ -24,8 +24,10 @@ set logtype text
 
 cd C:\Users\Jazmyne\Desktop\Stata\Datamanagement\working
 
+//use "https://github.com/jmcneese19/Problem-sets/blob/master/final_data.dta?raw=true, clear load from git hub
+
 use "https://docs.google.com/uc?id=1mLpl7OMdCKMteSvUbrGLaTMc_cCYLb3D&export=download", clear
-*cd C:\Users\Jazmyne\Desktop\Stata\Datamanagement\data 
+*cd C:\Users\Jazmyne\Desktop\Stata\Datamanagement\data *myfiles
 *go to the folder with the data
 *Navagating directories 
 *PWD - where am I
@@ -62,6 +64,10 @@ export excel using sch, replace
 export delimited using sch, replace
 
 export dbase using sch, replace
+
+//save [filename], replace *save as dta
+
+//outsheet using [filename], replace *save as csv
 
 
 //---------------------------data mgmt notes ----------------------------------------------
