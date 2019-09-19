@@ -1,0 +1,78 @@
+
+*HW1:dofile
+*Jazmyne McNeese 
+*Fall 2019
+*Version:15
+*Topic:Loading data, descriptives, saving
+*Why: I have a working paper for this data set,although it is missing a time variable(date schools switched)
+*----------------------------
+
+set more off
+* make stata run everything
+
+clear   
+* good to start with a clean slate      
+
+set matsize 800 
+* sets your maximum matrix size at 800 instead of 400(the default)
+
+cap log close
+*closes the log if it was open 
+
+set logtype text
+*log your stats session in text
+ 
+cd C:\Users\Jazmyne\Desktop\Stata\Datamanagement\data 
+*go to the folder with the data
+*Navagating directories 
+*PWD - where am I
+*cd - change directory 
+*ls - list all contents in directors
+*mkdir - make a directory 
+*rmdir - remove directory 
+*dir - show what files you have
+ 
+use final_data,clear
+*load data in to stata
+ 
+des
+*descirptive stats for all
+**specs 
+* 4,197 obervations 
+*24 variables 
+*most variables are percenatges
+
+list
+*list of all variables 
+
+sum
+*summary stats
+**specs
+* this is school distorct level data for the state of oklahoma
+*some communities are 100% white and 100% indian
+
+save, replace
+*save data set
+
+export excel using "C:\Users\Jazmyne\Desktop\Stata\Datamanagement\working", replace
+
+export delimited using "C:\Users\Jazmyne\Desktop\Stata\Datamanagement\working", replace
+
+export dbase using "C:\Users\Jazmyne\Desktop\Stata\Datamanagement\working", replace
+
+
+//---------------------------data mgmt notes ----------------------------------------------
+
+//Note that Stata output will appear jumbled unless you use a fixed width font, 
+//such as Courier New. A font size of 9 will keep the lines from breaking.
+
+//note stata can download files
+*copy https://sites.google.com/site/adamokuliczkozaryn/datman-1/gss.dta ./
+  
+//for delimited format use insheet/outsheet*/                            
+*insheet using gss.csv, clear
+*outsheet using mydata.csv, replace comma nolabel
+
+//you can load data from url*/ 
+*use https://sites.google.com/site/adamokuliczkozaryn/datman-1/gss.dta, clear    
+*insheet using https://sites.google.com/site/adamokuliczkozaryn/datman-1/gss.csv, clear
