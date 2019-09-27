@@ -7,6 +7,9 @@
 *Why: I have a working paper for this data set,although it is missing a time variable(date schools switched)
 *----------------------------
 
+//nice preamble! and i like 'why'--lets talk more about data
+
+
 set more off
 * make stata run everything
 
