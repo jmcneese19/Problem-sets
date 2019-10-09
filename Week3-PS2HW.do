@@ -52,9 +52,12 @@ drop imputed
 drop lowflag
 *there no meta data to explain what lowflag means
 
-keep in 2/9
+keep in 1/9
 collapse povertyrate, by(year)
 *gives me the state wide poverty rate from 2008-2016
+
+tab povertyrate year
+* The mean state poverty rate increased from 2008-2016 6.5 - 8.1
 
 restore
 *go back to orginial data
@@ -65,6 +68,9 @@ preserve
 keep in 10/198
 collapse povertyrate, by(year)
 *gives me the county wide poverty rate from 2008-2016 
+
+tab povertyrate year
+* The mean county poverty rate increased from 2008-2016 from 6.3-7.9
 
 restore
 *back to the originl state
