@@ -57,15 +57,23 @@ collapse povertyrate, by(year)
 *gives me the state wide poverty rate from 2008-2016
 
 tab povertyrate year
-* The mean state poverty rate increased from 2008-2016 6.5 - 8.1
+* The mean state poverty rate increased from 2008-2016 6.5 - 8.2
 
 restore
 *go back to orginial data
 
 preserve
-*Try this again with a different geography
+*Try this again with a different geography 
 
 keep in 10/198
+* Keeping the county level variables 
+
+rename GEOID id2
+*preparing for the merge
+
+merge m:1 id2 using "https://github.com/jmcneese19/Problem-sets/blob/master/housingdata.dta?raw=true"
+*merge evenivtion data with new houisng constrution data
+
 collapse povertyrate, by(year)
 *gives me the county wide poverty rate from 2008-2016 
 
@@ -74,6 +82,8 @@ tab povertyrate year
 
 restore
 *back to the originl state
+
+
 
 
 // addtional code //
