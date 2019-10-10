@@ -3,10 +3,22 @@
 *Fall 2019
 *Version:15
 *Topic: eviction data
-*Why: learning to use recode, collapse, drop, and replace
+**I am interested in looking at the impact of new housing 
+**construction on evictions, home values, and poverty.
+**My research interest in this project is to explore the effect 
+**of structural inequality in the housing market.
+**Literature states that new homes that are being built are bigger 
+**and therefore my expensive (Dwyer).
+**Therefore, my theory is that renter-occupied homes are decreasing 
+**in stock and provide a propensity for landlord to file for evictions 
+**due to increased demand for affordable or smaller housing.
+**My hypothesis is then that an increase in new and more expensive housing 
+**construction will lead to an increase in eviction filings and the overall 
+**eviction rate. My variables include, year housing was built, eviction filings, 
+**eviction rate, poverty rate, home values, renter-occupied homes etc..I intend 
+**to use a series of regressions to explain the variation in eviction filings or evictions.
+*Why: learning to use recode, collapse, drop, merge and replace
 *----------------------------
-
-//pls add brief description of your research idea here as a comment--what are you trying to do, your research question, hypothesis, model, variables, briefly just a paragraph or so, maybe few paragraphs
 
 set more off
 * make stata run everything
