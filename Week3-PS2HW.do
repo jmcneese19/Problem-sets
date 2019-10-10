@@ -6,6 +6,8 @@
 *Why: learning to use recode, collapse, drop, and replace
 *----------------------------
 
+//pls add brief description of your research idea here as a comment--what are you trying to do, your research question, hypothesis, model, variables, briefly just a paragraph or so, maybe few paragraphs
+
 set more off
 * make stata run everything
 
