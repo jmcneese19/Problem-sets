@@ -20,6 +20,15 @@
 *Why: learning to use recode, collapse, drop, merge and replace
 *----------------------------
 
+/*
+can
+use
+block
+comment
+above like this
+instead of typing in each line **
+*/
+
 set more off
 * make stata run everything
 
