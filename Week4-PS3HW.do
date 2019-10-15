@@ -139,7 +139,7 @@ reshape j year
 
 restore 
 *go back to the original data
-*_______________________________________________________________________________________*
+*______________________________________PS3 DONE_____________________________________________*
 
 
 
@@ -153,482 +153,246 @@ reshape j year
 
 drop in 1/1 
 
-drop parent location 
+drop parentlocation 
 
-drop percentrenteroccuiped
+drop pctrenteroccupied
 
 drop rentburden
 
 drop geodisplaylabel
 
+drop hc01_vc21 
+*mobile homes 
+
+drop hc01_vc22
+*boats etc 
+
+drop hc01_vc26
+*total housing years built 
+
+drop hc01_vc40
+*drop total housing units rooms
+
+drop hc01_vc41
+*drop 1 bed room
+
+drop hc01_vc42
+*drop 2 bed rooms 
+
+drop hc01_vc43
+*drop 3 bed rooms 
+
+drop hc01_vc44
+*drop 4 bed rooms
+
+drop hc01_vc45
+*drop 5 bed rooms
+
+drop hc01_vc46
+*drop 6 bed rooms
+
+drop hc01_vc47
+*drop 7 bed rooms 
+
+drop hc01_vc48
+*drop 8 bed rooms
+
+drop hc01_vc49
+*drop 9 bed rooms or more
+
+drop hc01_vc50
+* drop median rooms 
+
+drop hc01_vc54
+*total bed rooms 
+
+drop hc01_vc74
+*year moved in
+
+drop hc01_vc75
+*year moved in 
+
+drop hc01_vc76
+*year moved i 
+
+drop hc01_vc77
+*year moved in 
+
+drop hc01_vc78
+*year moved in
+
+drop hc01_vc79
+*year moved in 
+
+drop hc01_vc80
+*year moved in 
+
+drop hc01_vc84
+*vehicle
+
+drop hc01_vc85
+* vehicles 
+
+drop hc01_vc86
+* vehicles
+
+drop hc01_vc87
+*vehicles
+
+drop hc01_vc88
+*vehicles
+
+drop hc01_vc92
+*heating
+
+drop hc01_vc93
+*heating
+
+drop hc01_vc94
+*heating
+
+drop hc01_vc95
+*heating 
+
+drop hc01_vc96
+*heating
+
+drop hc01_vc97
+*heating
+
+drop hc01_vc98
+*heating
+
+drop hc01_vc99
+*heating
+
+drop hc01_vc100
+*heating
+
+drop hc01_vc101
+*heating
+
+drop
+
+ren id2 countyid 
+la var countyid countycode
+
+ren hc01_vc03 tothom
+la var tothom "total homes"
+
+ren hc01_vc04 totocchom
+la var totocchom "total occupied homes"
+
+ren hc01_vc05 totvachom
+la var totvachom "total vacant homes"
+
+ren hc01_vc08 homvacrate
+la var homvacrate "homeowner vacancy rate"
+
+ren hc01_vc09 renvacrate
+la var renvacrate "renter vacancy rate"
+
+ren hc01_vc13 totunits
+la var totunits "total housing units" 
+
+ren hc01_vc14 oneunidet
+la var oneunidet "1 unit detatched" 
+
+ren hc01_vc15 oneuniatt
+la var oneuniatt "1 unit attatched"
+
+ren hc01_vc16 twounits
+la var twounits "2 units"
+
+ren hc01_vc17 threorfouuni
+la var threorfouuni "3 or 4 units" 
+
+ren hc01_vc18 fivtoninuni
+la var fivtoninuni "5 to 9 units" 
+
+ren hc01_vc19 tentoninteeuni
+la var tentoninteeuni "10 to 19 units"
+
+ren hc01_vc20 twenormor
+la var twenormor "20 or more units"
+
+ren hc01_vc27 fourteenoraft
+la var fourteenoraft "built in 2014 or after"
+
+ren hc01_vc28 tentothirteen
+la var tentothirteen "built in 2010 to 2013"
+
+ren hc01_vc29 twothotoonine
+la var twothotoonine "built 2000 to 2009"
+
+ren hc01_vc30 ninetytoninnin
+la var ninetytoninnin "built 1990 to 1999"
+
+ren hc01_vc31 eigtoeignin
+la var eigtoeignin "built 1980 to 1989"
+
+ren hc01_vc32 sevtosevnin
+la var sevtosevnin "built in 1970 to 1979"
+
+ren hc01_vc33 sixtosixnin
+la var sixtosixnin "built in 1960 to 1969"
+
+ren hc01_vc34 fiftofifnin
+la var fiftofifnin "built in 1950 to 1959"
+
+ren hc01_vc35 foutofounin
+la var foutofounin "built in 1940 to 1949"
+
+ren hc01_vc36 thirninorearlier
+la var thirninorearlier "built in 1939 or earlier" 
+
+ren hc01_vc55 nobed
+la var nobed "no bedrooms"
+
+ren hc01_vc56 oneroom
+la var oneroom "1 bedroom"
+
+ren hc01_vc57 tworooms
+la var tworooms "2 bedrooms" 
+
+ren hc01_vc58 threrooms
+la var threrooms "3 bedrooms"
+
+ren hc01_vc59 fourooms
+la var fourooms "4 bedrooms"
+
+ren hc01_vc60 fivormore
+la var fivormore "5 or more bedrooms" 
+
+ren hc01_vc64 occhou
+la var occhou "occupied housing units"
+
+ren hc01_vc65 ownocc
+la var ownocc "owner occupied housing units"
+
+ren hc01_vc66 renocc
+la var renocc "renter occupied housing units"
+
+ren hc01_vc69 aveownocc
+la var aveownocc "average household size of a owner occupied unit"
+
+ren hc01_vc70 averenoccu
+la var averenoccu "average houshold size of a renter occupied unit"
 
 
-save evihoumer0816, replace
+//ren 
+//la var 
+
+
+//recode 
+
+
+
+save evihoumer0816
 
 *________________________________________________________________________________________
 
-
-/****************/
-/* Combine Data */
-/****************/
-
-
-***Merge
-
-
-*match dads and moms; from www.ats.ucla.edu/stat/stata/modules/combine.htm
-clear
-input famid str10 dadName dadInc
-2 "Jeb"  22000
-1 "Marco"  30000
-3 "Donald" 25000
-4 "Ted"  100000
-end
-save dads, replace
-list 
-
-clear
-input famid str10 momName momInc
-1 "Angela"  15000
-3 "Megyn"  50000
-2 "Carly"  18000
-5 "Hilary"  200000
-end
-save moms, replace
-list 
-
-
-use dads, clear //master
-list 
-
-merge 1:1 famid using moms //moms is using
-l
-
-
-*our favorite gss data (from slide)
-use gss.dta, clear
-gen id= _n
-keep id region
-save gss1.dta, replace /* (using)*/
-use gss.dta, clear
-gen id= _n
-keep id inc /* (master)*/
-merge 1:1 id using gss1.dta /* combine with (using)*/
-tab _merge /*always think about the merging results*/
-
-//and more examples below (from merge helpfile; all helpfiles have examples at the bottom)
-
-
-*cars merging
-webuse autosize, clear
-list
-webuse autoexpense,clear
-list
-//1:1 merge
-webuse autosize
-merge 1:1 make using http://www.stata-press.com/data/r14/autoexpense
-list
-
-//1:1 merge, requiring there to be only matches
-// (The merge command intentionally causes an error message.)
-webuse autosize, clear
-merge 1:1 make using http://www.stata-press.com/data/r14/autoexpense, assert(match)
-tab _merge
-list
-
-//1:1 merge, keeping only matches and squelching the _merge variable
-//don't do it--we don't know what really happened
-webuse autosize, clear
-merge 1:1 make using http://www.stata-press.com/data/r14/autoexpense, keep(match) nogen
-list
-
-
-* m:1
-
-webuse dollars, clear
-list
-webuse sforce,clear
-list
-
-//m:1 match merge with sforce in memory
-merge m:1 region using http://www.stata-press.com/data/r14/dollars
-list //note that sales and cost repeat themselves (are not unique) within regions
-// and the are unique across regions; names are unique both ways
-//it is important to be clear about this!
-
-clear
-input id age edu str2 state  //persons
-1 23 12 TX
-2 43 16 TX
-3 82 10 CA
-4 24 16 CA
-5 34 18 CA
-6 38 15 NY
-end
-l
-save ppl, replace
-
-clear
-input str2 state pop criRat urbPct  //states
-TX 26 508.2 75.4
-CA 38 503.8 89.7
-NY 19 401.8 82.7
-AL 10 900   3.3
-end
-l
-
-merge 1:m state using ppl
-l
-
-//OR could collapse multiple ppl per state to one state, take averages and merge 1:1
-
-/*Append*/  
-use gss.dta, clear
-keep in 1/5
-save gss1.dta, replace/* (using)*/
-use gss.dta, clear
-keep in 6/10
-append using gss1.dta
-
-/*Reshape*/
-use gss.dta, clear
-keep inc
-ren inc inc1
-gen inc2=2*inc1
-gen id= _n
-l id inc*, nola
-reshape long inc, i(id) j(period)
-l
-
-
-//http://campus.lakeforest.edu/lemke/econ330/stata/lab3/index.html
-use http://campus.lakeforest.edu/lemke/econ330/stata/lab3/wisconsin98data.dta,clear
-keep in 1/10
-keep name  name bamin* bamax* 
-list name bamin* bamax* 
-reshape long bamin bamax, i(name) j(year)
-l
-
-reshape wide bamin bamax, i(name) j(year)
-l
-
-//sometimes need to reshape twice
-use http://www.ssc.wisc.edu/sscc/pubs/files/stata_prog/monthyear.dta, clear
-d
-reshape long incJan incFeb incMar incApr incMay incJun incJul incAug incSep incOct incNov incDec, i(id)j(yr)
-gen id2=_n
-reshape long inc, i(id2)j(mo)string
-d
-
-//-----------------SKIP THE FOLLOWING------------------
-
-
-
-TODO: redo this exercise with something more real world--where 2 disctinct
-datasets are merged not one that is fake--guess just input data like with dads
-and moms above!!
-
-//---------EXERCISE 1--------------
-
-
- load fresh gss.dta
-for each of the following
- create id, a unique identifier for each observation; 
- save two datasets: one with id and region only, another with id and
- income only;  merge these two datasets
-  create another two datasets: one with first 50
- observations, another  contains the rest observation;  append them
-  create new variable: income\_in\_previous\_year which
- is 10\% smaller than respective income for this year;  reshape
- dataset to long format on income' hint: remember to have similar
- prefix on both, eg. `inc' and different suffix, eg. `1' and `2'
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-*__________________________________________________________________
-/*exercises--solutions*/
-
-
-
-
-/*1*/
-
-use gss.dta, clear
-gen id= _n
-keep id region
-save gss1.dta, replace
-use gss.dta, clear
-gen id= _n
-keep id inc
-merge id using gss1.dta, sort
-tab _merge
-
-use gss.dta, clear
-keep in 1/50
-save gss1.dta, replace
-use gss.dta, clear
-keep in 51/l
-append using gss1.dta
-edit
-
-use gss.dta, clear
-gen inc1=inc
-gen inc2=.9*inc
-drop inc /*need to drop this one because we want to have only two inc
-variables*/
-gen id= _n
-reshape long inc, i(id) j(period)
-
-edit
-
-
-
-*** an example of local macro... more later in programming class
-local path "/some_drive/some_dir/"
-//locals are like objects in object oriented programming like Python
-
-display "`path'"
-
-
-//------------------------------begin dofile------------------------------------
-//------------------------------begin dofile------------------------------------
-//------------------------------begin dofile------------------------------------
-
-/***************************/
-/* my usual stata commands */
-/***************************/
-clear                                  
-capture set maxvar 10000
-version 10                             
-set more off                           
-
-
-/*********************************/
-/* Working Hours in Europe vs US */
-/*********************************/
-
-*TODO:
-*E.G. many additional vars commented out that can be used in the future  
-* double check everything with "assert"
-
-loc d="~/desk/papers/gss_town_AND_politics/"        //the root directory, or the parent directory
-
-/**********************************************************/
-/* below is a directory structure for a simple project... */
-/**********************************************************/
-capture mkdir "`d'tex"                 
-capture mkdir "`d'out"                 
-capture mkdir "`d'out/tmp"
-//capture mkdir "`d'res"             
-capture mkdir "`d'lit"                 
-capture mkdir "`d'dat"
-//capture mkdir "`d'dat/base"                
-capture mkdir "`d'scr"
-
-cd "`d'"
-
-
-
-//------------------------------data_mgmt----------------------------------------
-
-use "`d'dat/gss.dta", clear
-
-........
-
-save "`d'dat/gss2.dta", clear
-
-  
-//------------------------------END data_mgmt------------------------------------
-
-
-
-//------------------------------sum_sts----------------------------------------
-  
-//------------------------------END sum_sts------------------------------------
-
-
-
-//------------------------------regressions----------------------------------------
-  
-//------------------------------END regressions------------------------------------
-
-
-//------------------------------end of dofile------------------------------------
-//------------------------------end of dofile------------------------------------
-//------------------------------end of dofile------------------------------------  
-
-
-//------------------------------begin dofile------------------------------------
-//------------------------------begin dofile------------------------------------
-//------------------------------begin dofile------------------------------------
-  
-/*****************************/
-/* many dofiles              */
-/*****************************/
-
-  
-/* this is a masterdofile */
-do `d' data_mgmt.do
-do `d' data_anal.do
-do `d' produce_res.do
-
-//------------------------------end of dofile------------------------------------
-//------------------------------end of dofile------------------------------------
-//------------------------------end of dofile------------------------------------  
-
-  
-//------------------------------begin dofile------------------------------------
-//------------------------------begin dofile------------------------------------
-//------------------------------begin dofile------------------------------------
-
-       
-
-
-/*********************************************************************************************************/
-/* this is a complicated project so we have a root directory soemwhere that is common for many projects  */
-/*********************************************************************************************************/
-
-loc g="~/desk/papers/root/"  // g is general or generic as opposed to d for project specific dir
-
-
-capture mkdir "`g'do"
-capture mkdir "`g'data"
-capture mkdir "`g'data/gss"
-
-
-/**********************************************************/
-/* below is a directory structure for a simple project... */
-/**********************************************************/
-
-loc d="~/desk/papers/gss_town_AND_politics/"
-
-capture mkdir "`d'tex"                 
-capture mkdir "`d'out"                 
-capture mkdir "`d'out/tmp"
-//capture mkdir "`d'res"             
-capture mkdir "`d'lit"                 
-capture mkdir "`d'dat"
-//capture mkdir "`d'dat/base"                
-capture mkdir "`d'scr"
-
-cd "`d'"
-
-
-/***************************/
-/* my usual stata commands */
-/***************************/
-clear                                  
-set mem 500m                           
-capture set maxvar 10000
-version 10                             
-set more off                           
-
-
-
-//------------------------------data_mgmt----------------------------------------
-do `g'do/aok_programs.do
-do `g'do/gss_data_mgmt.do
-//------------------------------END data_mgmt------------------------------------
-  
-
-//------------------------------sum_sts----------------------------------------
-use "`g'data/gss/gss.dta", clear   //grabbing data from root directory, because that data has many children
-
-........
-
-save "`d'dat/gss2.dta", clear
-//------------------------------END sum_sts------------------------------------
-
-
-//------------------------------regressions----------------------------------------
-  
-//------------------------------END regressions------------------------------------
-
-
-//------------------------------end of dofile------------------------------------
-//------------------------------end of dofile------------------------------------
-//------------------------------end of dofile------------------------------------  
-
-  
-//------------------------------begin dofile------------------------------------
-//------------------------------begin dofile------------------------------------
-//------------------------------begin dofile------------------------------------
-  
-/****************************/
-/* /\********************\/ */
-/* /\* naming, labeling *\/ */
-/* /\********************\/ */
-/****************************/   
-
-
-loc d="~/desk/papers/gss_town_AND_politics/"        
-
-/**********************************************************/
-/* below is a directory structure for a simple project... */
-/**********************************************************/
-capture mkdir "`d'tex"                 
-capture mkdir "`d'out"                 
-capture mkdir "`d'out/tmp"
-//capture mkdir "`d'res"             
-capture mkdir "`d'lit"                 
-capture mkdir "`d'dat"
-//capture mkdir "`d'dat/base"                
-capture mkdir "`d'scr"
-
-cd "`d'"
-
-
-/***************************/
-/* my usual stata commands */
-/***************************/
-clear                                  
-capture set maxvar 10000
-version 10                             
-set more off                           
-cd "`d'"
-
-
-/***************************************************/
-/* workaround for installing user-written commands */
-/***************************************************/ 
-
-sysdir  
-help sysdir
-
-mkdir ~/Desktop/junk/
-adopath + ~/Desktop/junk/
-adopath - ~/Desktop/junk/
-
-/* this one is more "invasive", remember to set it back...   */
-//sysdir set PLUS ~/Desktop/junk/  
-//sysdir set PLUS ~/ado/plus
-
-  
-
+************************************Addtional code
 
 
 /********************************************/
@@ -665,7 +429,7 @@ la val gender gender
 
 
 
-//----
+//----------------------------------------------------------------------------------
   
 /* but wait, remember simplicity rule ? what a variable gender means? we want to have a meaningful */
 /* variable, say female that would equal 1 for females and 0 for males  */
@@ -745,68 +509,7 @@ label data "gss subset for data mgmt class"
 d
 
 
-
-
-
 //------------------exercises---------------------- 
-
-
-//--1--
-/* get csv data
-insheet using https://sites.google.com/site/adamokuliczkozaryn/datman-1/gss.csv,clear  
-and generate a new variable "happy" that will be based on var
-v6 which is coded as
-1. very happy
-2. pretty happy
-3. not too happy
-the new var 'happy' should be coded 1 if person is either 'very' or 
-'pretty' happy and 0 otherwhise
-
-
-//--2--
-
-get 1972 gss data
-http://gss.norc.org/documents/stata/1972_stata.zip
-and find all status variables and save them as csv
-
-*/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//------------------exercise solutions---------------------- 
-
-
-/*****/
-/* 1 */
-/*****/
-insheet using https://sites.google.com/site/adamokuliczkozaryn/datman-1/gss.csv,clear 
-recode v6 (1/2=1 "very/pretty happy") (3=0 "miserable"), gen(happy)
-la var happy "general happiness"
-
-/* double check */
-ta happy v6, mi
-
-
-/*****/
-/* 2 */
-/*****/
-
-copy http://gss.norc.org/documents/stata/1972_stata.zip 1972_stata.zip
-unzipfile  1972_stata.zip
-use GSS1972.DTA,clear
 
 
 /* get the status variables */
@@ -816,11 +519,4 @@ lookfor wealth
 lookfor income
 lookfor education
 
-/* summarize them to see how many missing obs */
-sum ....
-
-/* keep the ones you need */
-keep ...
-
-outsheet using mygss.csv, comma replace
 
