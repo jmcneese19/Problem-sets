@@ -88,7 +88,6 @@ merge m:1 id2 using "https://github.com/jmcneese19/Problem-sets/blob/master/hous
 
 drop _merge
 
-
 merge m:1 id2 using "https://github.com/jmcneese19/Problem-sets/blob/master/housing09.dta?raw=true"
 *merge eviction data with ousing data 2009
 
@@ -108,7 +107,6 @@ merge m:1 id2 using "https://github.com/jmcneese19/Problem-sets/blob/master/hous
 *merge eviction data with housing data 2012 
 
 drop _merge
-
 
 merge m:1 id2 using "https://github.com/jmcneese19/Problem-sets/blob/master/housing13.dta?raw=true"
 *merge eviction data with housing data 2013 
@@ -133,9 +131,11 @@ drop _merge
 preserve 
 *saves my data where it is so if I mess up I can come back (restore puts it back)
 
+gen id3 =_n
+
 reshape j year 
 
- reshape wide pctafam, i(id3) j(year)
+reshape wide pctafam, i(id3) j(year)
 
 restore 
 *go back to the original data
@@ -148,6 +148,37 @@ restore
 ////////////////////////////////////////////////
 /////		cleaning merged file	      /////
 ////////////////////////////////////////////// 
+
+gen id3=_n
+
+merge m:1 id2 using "https://github.com/jmcneese19/Problem-sets/blob/master/housing08.dta?raw=true"
+*merge eviction data with housing data 2008 
+
+append using "https://github.com/jmcneese19/Problem-sets/blob/master/housing09.dta?raw=true"
+*merge eviction data with ousing data 2009
+
+append using "https://github.com/jmcneese19/Problem-sets/blob/master/housing10.dta?raw=true"
+*merge eviction data with housing data 2010 
+
+append using "https://github.com/jmcneese19/Problem-sets/blob/master/housing11.dta?raw=true"
+*merge eviction data with housing data 2011
+ 
+append using "https://github.com/jmcneese19/Problem-sets/blob/master/housing12.dta?raw=true"
+*merge eviction data with housing data 2012 
+
+append using "https://github.com/jmcneese19/Problem-sets/blob/master/housing13.dta?raw=true"
+*merge eviction data with housing data 2013
+**need help 
+
+append using "https://github.com/jmcneese19/Problem-sets/blob/master/housing14.dta?raw=true"
+*merge eviction data with housing data 2014 
+
+append using "https://github.com/jmcneese19/Problem-sets/blob/master/housing15.dta?raw=true"
+*merge eviction data with housing data 2015 
+*need help
+
+append using "https://github.com/jmcneese19/Problem-sets/blob/master/housing16.dta?raw=true"
+*merge eviction data with housing data 2016 
 
 reshape j year 
 
