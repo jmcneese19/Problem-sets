@@ -84,6 +84,9 @@ tostring id2, replace
 
 
 merge m:1 id2 using "https://github.com/jmcneese19/Problem-sets/blob/master/housing08.dta?raw=true"
+//no! something didnt merge right here! need to investigate, see what happened--tab _merge with other key vars such as id2 etc
+//and figure out why it didnt merge, and put a qucik comment with explnaation
+//need to make sure than non-merges are as expected, not mistakes/problems/typos--same for all other merges
 *merge eviction data with housing data 2008 
 
 drop _merge
