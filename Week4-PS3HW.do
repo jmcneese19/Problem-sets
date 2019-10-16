@@ -84,10 +84,13 @@ tostring id2, replace
 
 
 merge m:1 id2 using "https://github.com/jmcneese19/Problem-sets/blob/master/housing08.dta?raw=true"
-//no! something didnt merge right here! need to investigate, see what happened--tab _merge with other key vars such as id2 etc
-//and figure out why it didnt merge, and put a qucik comment with explnaation
-//need to make sure than non-merges are as expected, not mistakes/problems/typos--same for all other merges
 *merge eviction data with housing data 2008 
+
+tab _merge 
+*1 variable didnt merge that has the code 34 that is the state code 
+
+tab id2
+*varible didnt merge as exoected because all data are county level in using file 
 
 drop _merge
 
@@ -113,6 +116,7 @@ drop _merge
 
 merge m:1 id2 using "https://github.com/jmcneese19/Problem-sets/blob/master/housing13.dta?raw=true"
 *merge eviction data with housing data 2013 
+*there is also an issue here with joining where string variables are moved, will assess later
 
 drop _merge
 
@@ -123,6 +127,8 @@ drop _merge
 
 merge m:1 id2 using "https://github.com/jmcneese19/Problem-sets/blob/master/housing15.dta?raw=true"
 *merge eviction data with housing data 2015 
+*there same issue shows up here will assess later 
+
 
 drop _merge
 
