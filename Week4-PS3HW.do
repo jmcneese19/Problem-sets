@@ -22,6 +22,7 @@
 *eviction rate. My variables include, year housing was built, eviction filings, 
 *eviction rate, poverty rate, home values, renter-occupied homes etc..I intend 
 *to use a series of regressions to explain the variation in eviction filings or evictions.
+//this is almost perfect descr!
 
 **Why: learning to merge 5 times and reshape and cleaning, this time using county level data only and filling in the years 2008-20016 
 *____________________________________________________________________________________________*
@@ -56,7 +57,7 @@ cd C:\Users\Jazmyne\Desktop\Stata\Datamanagement\working
 
 
 use "https://github.com/jmcneese19/Problem-sets/blob/master/eviction%20sub.dta?raw=true", clear 
-*load eviction from git hub
+*load eviction from git hub ok but tell us exactly full name of data so i can find it online and give exaact URL to data and same for all other datasets
 
 drop subbed
 *all zeros dont need it
@@ -129,6 +130,7 @@ merge m:1 id2 using "https://github.com/jmcneese19/Problem-sets/blob/master/hous
 *merge eviction data with housing data 2015 
 *there same issue shows up here will assess later 
 
+//ok but need to merge with at least 3 more from elsewhere! do let me know if you need help finding more data!!
 
 drop _merge
 
@@ -142,9 +144,11 @@ preserve
 
 gen id3 =_n
 
-reshape j year 
+reshape j year //this didnt seem to do anything!
 
-reshape wide pctafam, i(id3) j(year)
+reshape wide pctafam, i(id3) j(year) //this doesnt seem to make sense! pls run
+help reshape
+//and see example!
 
 restore 
 *go back to the original data
