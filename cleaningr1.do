@@ -5,6 +5,7 @@
 *tasked with cleaning, renaming, and relabeling housing data from 9 census years
 *2008-2016
 
+//how about just merge everything first and only then rename, label etc
 
 //----------------------------2016----------------------------------------------
 use "https://github.com/jmcneese19/Problem-sets/blob/master/housing16.dta?raw=true"
@@ -92,7 +93,7 @@ drop hc01_vc8*
 drop hc01_vc9*
 
 des
-
+//this must be at the beginning
 cd C:\Users\Jazmyne\Desktop\Stata\Datamanagement\working\data //putting my self in my wokring folder to run my files 
 
 save hou16cle.dta, replace
