@@ -5,7 +5,7 @@
 *tasked with cleaning, renaming, and relabeling housing data from 9 census years
 *2008-2016
 
-//how about just merge everything first and only then rename, label etc
+cd C:\Users\Jazmyne\Desktop\Stata\Datamanagement\working\data //putting my self in my wokring folder to run my files 
 
 //----------------------------2016----------------------------------------------
 use "https://github.com/jmcneese19/Problem-sets/blob/master/housing16.dta?raw=true"
@@ -93,7 +93,7 @@ drop hc01_vc8*
 drop hc01_vc9*
 
 des
-//this must be at the beginning
+
 cd C:\Users\Jazmyne\Desktop\Stata\Datamanagement\working\data //putting my self in my wokring folder to run my files 
 
 save hou16cle.dta, replace
@@ -186,8 +186,6 @@ drop hc01_vc9*
 
 des
 
-cd C:\Users\Jazmyne\Desktop\Stata\Datamanagement\working\data //putting my self in my wokring folder to run my files 
-
 save hou15cle.dta, replace
 clear
 
@@ -276,8 +274,6 @@ drop hc01_vc8*
 drop hc01_vc9*
 
 des
-
-cd C:\Users\Jazmyne\Desktop\Stata\Datamanagement\working\data //putting my self in my wokring folder to run my files 
 
 save hou14cle.dta, replace
 clear
@@ -368,7 +364,6 @@ drop hc01_vc9*
 
 des
 
-cd C:\Users\Jazmyne\Desktop\Stata\Datamanagement\working\data //putting my self in my wokring folder to run my files 
 
 save hou13cle.dta, replace
 clear
@@ -459,7 +454,6 @@ drop hc01_vc9*
 
 des
 
-cd C:\Users\Jazmyne\Desktop\Stata\Datamanagement\working\data //putting my self in my wokring folder to run my files 
 
 save hou12cle.dta, replace
 clear
@@ -550,8 +544,6 @@ drop hc01_vc9*
 
 des
 
-cd C:\Users\Jazmyne\Desktop\Stata\Datamanagement\working\data //putting my self in my wokring folder to run my files 
-
 save hou11cle.dta, replace
 clear
 
@@ -640,8 +632,6 @@ drop hc01_vc8*
 drop hc01_vc9*
 
 des
-
-cd C:\Users\Jazmyne\Desktop\Stata\Datamanagement\working\data //putting my self in my wokring folder to run my files 
 
 save hou10cle.dta, replace
 clear
@@ -732,8 +722,6 @@ drop hc01_est_vc9*
 
 des
 
-cd C:\Users\Jazmyne\Desktop\Stata\Datamanagement\working\data //putting my self in my wokring folder to run my files 
-
 save hou09cle.dta, replace
 clear
 
@@ -822,8 +810,6 @@ drop hc01_est_vc8*
 drop hc01_est_vc9*
 
 des
-
-cd C:\Users\Jazmyne\Desktop\Stata\Datamanagement\working\data //putting my self in my wokring folder to run my files 
 
 save hou08cle.dta, replace
 clear
