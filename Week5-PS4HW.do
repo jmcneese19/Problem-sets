@@ -1,8 +1,5 @@
 *________________________________________________________________________________________*
-//good start wirth graphs; how about browse galleries and figure out more ideas from there--when you browse graphs there
-//think if you can use it for your data
-//and make more graphs--all the vars you are interested in;
-//and consider line plots: key var of interest over time--note you need long format so may need to reshape!
+
 **HW4:dofile
 **Jazmyne McNeese 
 **Fall 2019
@@ -42,16 +39,8 @@
 								////2014
 									////2015
 										////2016
+// 3- https://www.njsp.org/ucr/uniform-crime-reports.shtml (will add crime reporting data later if needed)
 
-**Research Questions *incarcertaion evicition, new housign stock  
-**Hypothesis
-	
-** PS3/4
-*again: another draft of your final project; reuse code from earlier, polish it–quality matters! make sure you have a paragraph or
-*so saying what you are doing here and why, e.g. your research idea, initial findings, etc; something like an extended abstract;
-*code has to be at least 400 lines of tight code (excluding comments and blank lines) that makes sense, no code padding, drop
-*things that are not necessary; this is important: i will penalize code that is just written to add lines!; indeed, better fail
-*the 400 lines minimum than generate boilerplate
 
 //have plenty of graphs! likewise use lavishly outreg2 and/or estout
 
@@ -68,7 +57,6 @@ clear   												 //good to start with a clean slate
 set matsize 800 										 //sets your maximum matrix size at 800 instead of 400(the default)
 cap log close	 										 //closes the log if it was open 
 set logtype text 										 //log your stats session in text
-//again all cd should be here
 cd C:\Users\Jazmyne\Desktop\							 //putting my self in my wokring folder to run my files 
 mkdir jazzdrive
 
