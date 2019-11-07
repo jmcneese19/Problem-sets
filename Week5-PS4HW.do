@@ -1,3 +1,4 @@
+//need way mor code, at very least 400 lines! put everything together from earlier as well;;;use more graphs
 *________________________________________________________________________________________*
 
 **HW4:dofile
@@ -140,6 +141,7 @@ save evihoumer0816, replace
 ////////////////////////////////////////////// 
 
 gr matrix evictionrate pct*, half
+//here and elsewhere, dont use paths throught! only once at begining
 cd C:\Users\Jazmyne\Desktop\stata\datamanagement\working\output
 gr export graph1.png, replace						
 *the percentage of the renter occupied population for all counties 
@@ -166,6 +168,7 @@ gr export graph4.png, replace
 *from 2208 to 2016 the rate of evictiosn does decrease while poverty increases. 
 *this is promising news yet it doesnt explain the racial difference in eviction rates
 
+//this can be made into macro and/or loop--again if sth repeats should be made into macro/loop
 tabstat evictionrate povertyrate population rentburden, by(countyname)
 tabstat evictionrate povertyrate population rentburden, by(countyname) stat(mean sd min max)
 tabstat evictionrate povertyrate population rentburden, by(countyname) stat(mean sd min max) nototal long format
