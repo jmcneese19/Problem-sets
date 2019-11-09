@@ -1,3 +1,30 @@
+/*
+had a closer look and we're not combining this right--so like this part here, may be more efficient to meet and
+go over this or just try to follow the following:
+
+you have county-year data and then you merge on county with housing 2016, and then append other housing files for other years, 
+so this doesnt make sense
+
+merge m:1 id2 year using hou16cle.dta						//merge eviction data with housing data 2016 
+append using hou15cle.dta									//merge eviction data with housing data 2015
+append using hou14cle.dta									//merge eviction data with housing data 2014
+append using hou13cle.dta									//merge eviction data with housing data 2013
+append using hou12cle.dta									//merge eviction data with housing data 2012
+append using hou11cle.dta									//merge eviction data with housing data 2011
+append using hou10cle.dta									//merge eviction data with housing data 2010
+append using hou09cle.dta									//merge eviction data with housing data 2009
+append using hou08cle.dta
+
+so what we need is this:
+just add year to each housing file, dont rename or label them, just add year, then append everything together and then merge 1:1
+on both county and year with  "https://github.com/jmcneese19/Problem-sets/blob/master/eviction%20sub.dta?raw=true"
+
+also need more graphs, try scatterplots and lineplots (over time); and when doing regress and outreg2, start with simple bivariate
+model outreg2 replace, then add some variables and outreg2 append and then add even more and outreg2 append and again
+
+
+*/
+
 *________________________________________________________________________________________*
 
 **HW4:dofile
