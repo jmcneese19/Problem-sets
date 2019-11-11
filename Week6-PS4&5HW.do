@@ -781,29 +781,29 @@ reg evictions pctwhite povertyrate  medianpropertyvalue medianhouseholdincome
 est store income
 esttab evictions race poverty propertyvalue income, order(_cons) stat(r2 F N) mtitle label varw(25) title("Table 1: OLS Models")
 
-reg evictionfilings 										//lets assess the effect of the most significant variables (evicitonfillings)
-estimates store filings 
-reg evictionfilings pctwhite 
+reg evictionfilingrate 										//lets assess the effect of the most significant variables (evicitonfillings)
+estimates store filingrate 
+reg evictionfilingrate pctwhite 
 est store race 
-reg evictionfilings pctwhite povertyrate 
+reg evictionfilingrate pctwhite povertyrate 
 est store poverty 
-reg evictionfilings pctwhite povertyrate  medianpropertyvalue
+reg evictionfilingrate pctwhite povertyrate  medianpropertyvalue
 est store propertyvalue
-reg evictionfilings pctwhite povertyrate  medianpropertyvalue medianhouseholdincome
+reg evictionfilingrate pctwhite povertyrate  medianpropertyvalue medianhouseholdincome
 est store income
-esttab filings race poverty propertyvalue income, order(_cons) stat(r2 F N) mtitle label varw(25) title("Table 1: OLS Models")
+esttab filingrate race poverty propertyvalue income, order(_cons) stat(r2 F N) mtitle label varw(25) title("Table 1: OLS Models")
 
-reg evictions 												//lets assess the effect of the most significant variables (evicitons)
-estimates store evictions 
-reg evictions pctwhite 
+reg evictionrate 												//lets assess the effect of the most significant variables (evicitons)
+estimates store evictionrate 
+reg evictionrate pctwhite 
 est store race 
-reg evictions pctwhite povertyrate 
+reg evictionrate pctwhite povertyrate 
 est store poverty 
-reg evictions pctwhite povertyrate  medianpropertyvalue
+reg evictionrate pctwhite povertyrate  medianpropertyvalue
 est store propertyvalue
-reg evictions pctwhite povertyrate  medianpropertyvalue medianhouseholdincome
+reg evictionrate pctwhite povertyrate  medianpropertyvalue medianhouseholdincome
 est store income
-esttab evictions race poverty propertyvalue income, order(_cons) stat(r2 F N) mtitle label varw(25) title("Table 1: OLS Models")
+esttab evictionrate race poverty propertyvalue income, order(_cons) stat(r2 F N) mtitle label varw(25) title("Table 1: OLS Models")
 
 
 
