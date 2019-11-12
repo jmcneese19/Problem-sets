@@ -4,7 +4,7 @@
 **Fall 2019
 **Version:15
 **Topic: eviction data
-**DUE OCT 31st
+**DUE NOV 14th
 
 **Summary:
 *I am interested in looking at the impact of new housing 
@@ -22,9 +22,8 @@
 *eviction rate, poverty rate, home values, renter-occupied homes etc..I intend 
 *to use a series of regressions to explain the variation in eviction filings or evictions.
 
-**Stage: 1 macros , 1 loops, 1 branching or if selse, 300-3k lines, t test ,
-// heterskdacity, cross tabs, loc misery (group variables `misery'[instead of vairable names] 
-//grec graph code
+**Stage: 1 branching or if selse, 300-3k lines, t test ,
+// heterskdacity, cross tabs,grec graph code
 
 **Data Sets 
 // 1- Eviction Lab at princton University NJ county level data from 2008-2016
@@ -40,7 +39,7 @@
 								////2014
 									////2015
 										////2016
-// 3- https://www.njsp.org/ucr/uniform-crime-reports.shtml (will add crime reporting data later if needed)
+// 3- https://www.njsp.org/ucr/uniform-crime-reports.shtml (could add crime reporting data later if needed)
 
 //----------------------------PROGRAM BEGINS-------------------------------------------
 //----------------------------PROGRAM BEGINS-------------------------------------------
