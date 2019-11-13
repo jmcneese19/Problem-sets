@@ -585,6 +585,7 @@ clear
 ////////////////////////////////////////////// 
 cd $dir\data							
 
+//yes! thats the way to do it, first append and then merge!
 use "hou16cle.dta"
 append using hou15cle.dta									//merge eviction data with housing data 2015
 append using hou14cle.dta									//merge eviction data with housing data 2014
@@ -594,6 +595,11 @@ append using hou11cle.dta									//merge eviction data with housing data 2011
 append using hou10cle.dta									//merge eviction data with housing data 2010
 append using hou09cle.dta									//merge eviction data with housing data 2009
 append using hou08cle.dta
+
+//but still not 100 percent sure about this, eg that vars have totally different meaning in different years
+//and anyway looks like all the data are here
+//https://eviction-lab-data-downloads.s3.amazonaws.com/NJ/counties.csv
+//so why you do the above?
 
 merge m:1 id2 year using evicoucle							//merge eviction data with housing data 2008	
 
@@ -804,13 +810,17 @@ reg evictionrate pctwhite povertyrate  medianpropertyvalue medianhouseholdincome
 est store income
 esttab evictionrate race poverty propertyvalue income, order(_cons) stat(r2 F N) mtitle label varw(25) title("Table 1: OLS Models")
 
-
+//so why dont you interpret these results? and i dont mean mechanistic, for one unit increase in x....
+//but taking stock of all these regressions, what is the bottomline here? what did you find?
+//does it support your hypotheseses? what is the answer to your reseach questions?
 
 
 ////////////////////////////////////////////////
 /////	        Macros and Loops    	  /////
 //////////////////////////////////////////////
 
+//yeah but this is not helpful, you can just say
+//d
 
 foreach var of varlist * {
 di "the `var' is laballed as `:var lab `var' ' "
@@ -821,7 +831,7 @@ sum
 
 levelsof evictions, loc(_evictions)
 levelsof year, loc(_year)
-//NEED HELP
+//NEED HELP don't jump straigh to complicated macro! do first a simple one following examples from the class
 foreach  in `_evictions'{
   foreach year in `_year'{
     qui sum price if evictions ==`evictions' & year == `year'
