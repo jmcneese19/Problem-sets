@@ -585,7 +585,6 @@ clear
 ////////////////////////////////////////////// 
 cd $dir\data							
 
-//yes! thats the way to do it, first append and then merge!
 use "hou16cle.dta"
 append using hou15cle.dta									//merge eviction data with housing data 2015
 append using hou14cle.dta									//merge eviction data with housing data 2014
@@ -596,12 +595,7 @@ append using hou10cle.dta									//merge eviction data with housing data 2010
 append using hou09cle.dta									//merge eviction data with housing data 2009
 append using hou08cle.dta
 
-//but still not 100 percent sure about this, eg that vars have totally different meaning in different years
-//and anyway looks like all the data are here
-//https://eviction-lab-data-downloads.s3.amazonaws.com/NJ/counties.csv
-//so why you do the above?
-
-merge m:1 id2 year using evicoucle							//merge eviction data with housing data 2008	
+merge 1:1 id2 year using evicoucle							//merge eviction data with housing data 2008	
 
 ////////////////////////////////////////////////
 /////			cleaning master  file	  /////
@@ -670,6 +664,11 @@ use"https://github.com/jmcneese19/Problem-sets/blob/master/evihoumer0816.dta?raw
 
 graph set window fontface "Times New Roman"
 
+replace totuni=totuni/1000
+***label units in thusands 
+***renter occupied and race white and renting 
+gr matrix evictionrate pctwhite pctrenteroccupied, half
+
 //line year tothom, by:(countyname)
 gr hbar totuni evictions, over (countyname)
 gr hbar year evictionfilings, over (countyname)
@@ -683,17 +682,17 @@ gr export graph1.png, replace
 *the renter occupied population for all the counties in the state of 
 *New Jersey is increasing from 2008-2016  
 
-gr hbar evictionrate povertyrate, over (year)
+gr hbar evictionrate povertyrate, over(year, sort(povertyrate))
 gr export graph4.png, replace
 *from 2208 to 2016 the rate of evictiosn does decrease while poverty increases. 
 *this is promising news yet it doesnt explain the racial difference in eviction rates
 
-gr hbar evictionrate pctwhite, over(countyname) name(WEVI)
+gr hbar evictionrate pctwhite, over(countyname) name(WEVI, replace)
 gr export graph2.png, replace
 *The mean percenateg of white people in each county in new jersey over all is around
 *30% or greater, yet the eviction rates are significantly less than 10 percent. 
 
-gr hbar evictionrate pctafam, over (countyname) name(BEVI)
+gr hbar evictionrate pctafam, over (countyname) name(BEVI, replace)
 gr export graph3.png, replace
 *The mean percentage of black people in each county in New Jersey over all is aroung
 *20% or less, yet the rates of evictions in most counties are higher than those of 
@@ -708,8 +707,8 @@ scatter year evictionfilings
 scatter year evictionrate
 
 plot povertyrate evictions
-//NEED HELP
-local `misfortune' evictionrate povertyrate population rentburden
+
+local misfortune evictionrate povertyrate population rentburden
 di `misfortune'
 tabstat `misfortune', by(countyname)
 tabstat `misfortune', by(countyname) stat(mean sd min max)
@@ -761,6 +760,9 @@ reg evictions rentburden
 outreg2 using evihoumer0816, replace sum(log) keep(povertyrate evictionfilings evictions rentburden)
 outreg2 using evihoumer0816, replace sum(log) keep(pctwhite pctafam pcthispanic pctamind pctasian pctnhpi pctmultiple pctother)
 
+****pwcorr eviction*
+****gr matrix eviction*, half 
+
 
 reg evictionfilings 										//lets assess the effect of the most significant variables (evicitonfillings)
 estimates store filings 
@@ -804,23 +806,17 @@ reg evictionrate pctwhite
 est store race 
 reg evictionrate pctwhite povertyrate 
 est store poverty 
-reg evictionrate pctwhite povertyrate  medianpropertyvalue
+reg evictionrate pctwhite povertyrate medianpropertyvalue
 est store propertyvalue
 reg evictionrate pctwhite povertyrate  medianpropertyvalue medianhouseholdincome
 est store income
 esttab evictionrate race poverty propertyvalue income, order(_cons) stat(r2 F N) mtitle label varw(25) title("Table 1: OLS Models")
-
-//so why dont you interpret these results? and i dont mean mechanistic, for one unit increase in x....
-//but taking stock of all these regressions, what is the bottomline here? what did you find?
-//does it support your hypotheseses? what is the answer to your reseach questions?
 
 
 ////////////////////////////////////////////////
 /////	        Macros and Loops    	  /////
 //////////////////////////////////////////////
 
-//yeah but this is not helpful, you can just say
-//d
 
 foreach var of varlist * {
 di "the `var' is laballed as `:var lab `var' ' "
@@ -829,15 +825,35 @@ di "the `var' is laballed as `:var lab `var' ' "
 d
 sum
 
-levelsof evictions, loc(_evictions)
+pwcorr eviction*
+gr matrix eviction*, half //super interesting bunch of outliers!
+//and then to do a loop simply 
+
+foreach dv of varlist eviction*{
+reg `dv' pctwhite 
+est store `dv'_r 
+reg `dv' pctwhite povertyrate 
+est store `dv'_po 
+reg `dv' pctwhite povertyrate  medianpropertyvalue
+est store `dv'_pr
+reg `dv' pctwhite povertyrate  medianpropertyvalue medianhouseholdincome
+est store `dv'_pp
+}
+
+est tab evictions_*, b(%9.2f) star
+
+d
+sum 
+
+levelsof countyid , loc(_countyid)
 levelsof year, loc(_year)
-//NEED HELP don't jump straigh to complicated macro! do first a simple one following examples from the class
-foreach  in `_evictions'{
+foreach ev in `_countyid'{
   foreach year in `_year'{
-    qui sum price if evictions ==`evictions' & year == `year'
-    di "the mean for`:var lab evictions'`: label evictions `evictions'' and `:var lab year' `: label origin `year'' is `r(mean)'"
+    qui sum pctafam  if countyid ==`ev' & year == `year'
+    di "the mean for`:var lab countyid'`: label countyid `ev'' and `:var lab year' `: label origin `year'' is `r(mean)'"
   }
 }
+
 
 //----------------------------PROGRAM ENDS---------------------------------------------
 //----------------------------PROGRAM ENDS---------------------------------------------
