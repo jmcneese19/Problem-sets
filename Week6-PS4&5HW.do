@@ -22,6 +22,9 @@
 *eviction rate, poverty rate, home values, renter-occupied homes etc..I intend 
 *to use a series of regressions to explain the variation in eviction filings or evictions.
 
+//great, very nice research, then pls dont forget to relate back to these questions and hypotheses when you do 
+//descriptive and inferential stats: graphs, tables, regressions
+
 **Stage: 1 branching or if selse, 300-3k lines, t test ,
 // heterskdacity, cross tabs,grec graph code
 
@@ -854,7 +857,18 @@ foreach ev in `_countyid'{
   }
 }
 
-
+/*
+just wonder if thats what is expected--mean is constant for mant years...:
+the mean forcountycode34041 and year 2008 is 3.02
+the mean forcountycode34041 and year 2009 is 3.02
+the mean forcountycode34041 and year 2010 is 3.3
+the mean forcountycode34041 and year 2011 is 4.04
+the mean forcountycode34041 and year 2012 is 4.04
+the mean forcountycode34041 and year 2013 is 4.04
+the mean forcountycode34041 and year 2014 is 4.04
+the mean forcountycode34041 and year 2015 is 4.04
+the mean forcountycode34041 and year 2016 is 4.04
+*/
 //----------------------------PROGRAM ENDS---------------------------------------------
 //----------------------------PROGRAM ENDS---------------------------------------------
 //----------------------------PROGRAM ENDS---------------------------------------------
