@@ -682,7 +682,7 @@ summarize `macro_trial' if countyid==`l'
 }     		
 								
 reg evictions medianpropertyvalue
-outreg
+outreg using evihoumer0816
 reg evictions mediangrossrent
 outreg using evihoumer0816, merge
 reg evictions medianhouseholdincome 
@@ -705,7 +705,7 @@ reg evictionrate povertyrate
 outreg using evihoumer0816, merge
 
 regress evictions povertyrate
-outreg
+outreg using evihoumer0816
 regress evictionfilings povertyrate
 outreg using evihoumer0816, merge
 reg evictions rentburden
@@ -759,9 +759,6 @@ scatter homvacrate evictionfilings
 
 local misfortune evictionrate povertyrate rentburden totvachom
 di `misfortune'
-tabstat `misfortune', by(countyname)
-tabstat `misfortune', by(countyname) stat(mean sd min max)
-tabstat `misfortune', by(countyname) stat(mean sd min max) nototal long format
 tabstat `misfortune', by(countyname) stat(mean sd min max) nototal long col(stat)
 
 /* What we find when we assess that graphs and charts is that the mean number of
