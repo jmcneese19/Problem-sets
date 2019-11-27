@@ -790,7 +790,7 @@ gr hbar evictionrate pctwhite, over(countyname) name(WHEV, replace)
 gr export graph2.png, replace
 gr hbar evictionrate pctafam, over (countyname) name(BLEV, replace)
 gr export graph3.png, replace
-graph combine WHEV BLEV, col(1)
+graph combine WHEV BLEV, col(1) imargin(0 0 0 0) graphregion(margin(l=22 r=22))
 gr export graph4.png, replace
 
 foreach dv of varlist eviction*{
