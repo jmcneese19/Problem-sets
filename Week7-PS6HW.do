@@ -83,8 +83,8 @@ capture mkdir $dir\literature
 capture mkdir $dir\data
 capture mkdir $dir\dofiles	
 
-cd  $dir
-ls `jazzdrive' 
+cd  $dir //you aleady did above!
+ls `jazzdrive' //there is no such macro!
 ////////////////////////////////////////////////
 /////     Prep files for merge	          /////
 //////////////////////////////////////////////
@@ -583,7 +583,10 @@ use "https://github.com/jmcneese19/Problem-sets/blob/master/eviction%20sub.dta?r
 drop subbed												
 drop imputed											
 drop lowflag											
-keep in 10/198											 
+keep in 10/198	//fine but ideall should keep if parent location is jersey and if it is county, can extract some chrs
+//of a var (to get "county") using sth like https://www.statalist.org/forums/forum/general-stata-discussion/general/112429-extracting-last-three-digits-from-a-string-regex
+//also see class on text; again while keep in 10/198 works, it may create error in the future if data becomes slightly different
+//or even just sorted; and so keeping on condition that we actually use explicitly is more elegant and bulletproof
 rename GEOID id2										
 tostring id2, replace									
 
@@ -608,7 +611,7 @@ merge 1:1 id2 year using evicoucle
 ////////////////////////////////////////////////
 /////  labeling and cleaning master file  /////
 ////////////////////////////////////////////// 
-keep in 10/198
+keep in 10/198 //here it is even worse! it must be fixed at least here!!
 ren id2 countyid 
 la var countyid countycode
 ren name countyname 
@@ -674,7 +677,7 @@ use"https://github.com/jmcneese19/Problem-sets/blob/master/evihoumer0816.dta?raw
 
 des 												  
 sum													
-mvpatterns
+mvpatterns //ok good why not briefly say what you have found and thats a user written command so should be installed at the beginning
 
 local macro_trial evictionrate povertyrate population rentburden
 levelsof countyid
@@ -683,7 +686,10 @@ foreach l of local levels {
 display `l'
 summarize `macro_trial' if countyid==`l'
 }     		
-								
+//again, here and elsewhere do say briefly what have you found
+
+//probably should use outreg2 instead and use some options see class matrials on it and i think alos shourjya had similar comments
+//definitely should use option append to make one or few tables with multiple columnsz	
 reg evictions medianpropertyvalue
 outreg using evihoumer0816, replace
 reg evictions mediangrossrent
@@ -717,6 +723,11 @@ outreg using evihoumer0816, merge
 outreg2 using evihoumer0816, replace sum(log) keep(povertyrate rentburden) 									
 outreg2 using evihoumer0816, replace sum(log) keep(evictionfilingrate evictionfilings evictions evictionrate)	
 outreg2 using evihoumer0816, replace sum(log) keep(pctwhite pctafam pcthispanic pctamind pctasian pctnhpi pctmultiple pctother)
+
+//ok good this is even better so you have here below the overall interpretation so i take back what i said earlier,
+//but be careful with interpretation! as it changes when you control for more vairables--should interpret how the main 
+//coefficient of interest changes as you keep on adding more vars; so again would help a lot if you had table
+//where you have outregged2 all regressions and can compare them and scan through them and provide overall interpretation
 
 /*Desomnds book reviews poverty and economic explortation in teh housing market. 
 The stories of those who fall victim to the substandard system do so because 
@@ -752,6 +763,13 @@ gr export graph4.png, replace
 
 pwcorr eviction*
 gr matrix eviction*, half 
+
+//could do it for each year eparately or side by side and/or put year on graph with mlabel and or put county name on scatterplot
+//i dont understand why you answer some questions with graphs only and some with regressions only, should be both for all q
+//also could better in general fine tune descriptive and inferential stats, not necessarily cut what you have so far,
+//but they're mostly automatic in a sense that you crank out a lot of output, which is fine for exploration, but in addition
+//should then focus in on some nicer elaborated and polished descriptive and inferential stats that could go straight into paper
+//i refrain from commenting on results, lets present them in class after thanksgiving and brainstorm and discuss
 
 scatter povertyrate evictions
 scatter povertyrate evictionfilings
