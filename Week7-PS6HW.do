@@ -62,7 +62,10 @@ set more off
 clear   												       
 set matsize 800 										 
 cap log close	 										 
-set logtype text 										
+set logtype text 	
+
+ssc install outreg, replace		
+ssc install outreg2, replace							
 ////////////////////////////////////////////////
 /////  organzie files 				      /////
 ////////////////////////////////////////////// 
@@ -682,7 +685,7 @@ summarize `macro_trial' if countyid==`l'
 }     		
 								
 reg evictions medianpropertyvalue
-outreg using evihoumer0816
+outreg using evihoumer0816, replace
 reg evictions mediangrossrent
 outreg using evihoumer0816, merge
 reg evictions medianhouseholdincome 
@@ -705,7 +708,7 @@ reg evictionrate povertyrate
 outreg using evihoumer0816, merge
 
 regress evictions povertyrate
-outreg using evihoumer0816
+outreg using evihoumer0816, replace
 regress evictionfilings povertyrate
 outreg using evihoumer0816, merge
 reg evictions rentburden
