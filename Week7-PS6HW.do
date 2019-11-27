@@ -25,7 +25,7 @@ Variables:
 Dependent Vairables - evictions, evictionrate, evictionfilings, evictionfilingsrates  
 Independent Variables - race, median houshold income, renter occupied homes
 Control Variables - poverty, 
-
+ 
 Research Questions: 
 1. What is the extent of evicitons in the state of new jersey (Explore data)
 2. Evaluate the relationship between evictions, evictionfilings, eviction rates and eviciton filign rates 
