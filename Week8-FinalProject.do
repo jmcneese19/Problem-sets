@@ -601,7 +601,6 @@ rename county_fips id2
 rename id caseid
 gen year = year(stop_date)
 tostring id2, replace
-//tostring year, replace
 saveold "polsto916s", version(13) replace
 clear 
 
@@ -610,8 +609,6 @@ use "https://github.com/jmcneese19/Problem-sets/blob/master/teasal16s.dta?raw=tr
 gen countyname = county + " " + "County"
 rename countyname name
 collapse (median)salary, by(name) cw
-//tostring name, replace
-//tostring year, replace
 saveold "teasal16s", version(13) replace
 clear
 ////////////////////////////////////////////////
