@@ -4,7 +4,7 @@ Jazmyne McNeese
 Fall 2019
 Version:15
 Topic: evictions in NJ 
-DUE NOV30th
+DUE DEC15th
 
 Summary:
 My research interest in this project is to explore the effect of structural 
@@ -24,7 +24,7 @@ NJ's counties given the variables of interest from eviction research
 Variables:
 Dependent Vairables - evictions, evictionrate, evictionfilings, evictionfilingsrates  
 Independent Variables - race, median houshold income, renter occupied homes
-Control Variables - poverty, 
+Control Variables - poverty, rent burden, meadian household income, median property value  
 
 Research Questions: 
 1. What is the extent of evicitons in the state of new jersey (Explore data)
@@ -32,7 +32,13 @@ Research Questions:
 3. What is the extent of Race as a significant predictor of evictions 
 4. How do these findings effect home values in NJ counties  
 
-//could add specific hypotheses!
+Hypothesis
+1. I Hypothesize that race will have a more significant impact on 
+evictions and eiction filings in New Jersey Counties. 
+2. More specifically, I hypothesize that being evctions effect black populations
+more often than any other race. 
+3. I also hypothesize that the largest dispariyty is bewteen those who identify 
+as white and those that identify as black. 
 
 Data Sets: 
 1- Eviction Lab at princton University NJ county level data from 2008-2016
@@ -633,8 +639,7 @@ drop _merge
 merge 1:m id2 year using polsto916s	// wont merge fuly ots only from 2009-2011
 drop _merge
 merge m:1 name using teasal16s // wont fully merge only has 2016 year on 10,000 obs
-drop _merge
-						
+drop _merge				
 ////////////////////////////////////////////////
 /////  labeling and cleaning master file  /////
 ////////////////////////////////////////////// 
@@ -698,12 +703,13 @@ clear
 ////////////////////////////////////////////////
 /////	     Question 1	Analysis          /////
 ////////////////////////////////////////////// 
-cd $dir\output
-use"https://github.com/jmcneese19/Problem-sets/blob/master/evihoumer0816.dta?raw=true", clear
+cd $dir\data											//loading research data
+use"https://github.com/jmcneese19/Problem-sets/blob/master/evihoumer0816og.dta?raw=true", clear
+save evihoumer0816og, replace
 
+cd $dir\output															
 des 												  
 sum													
-mvpatterns
 
 local macro_trial evictionrate povertyrate population rentburden
 levelsof countyid
@@ -795,15 +801,15 @@ tabstat `misfortune', by(countyname) stat(mean sd min max) nototal long col(stat
 
 /* What we find when we assess that graphs and charts is that the mean number of
 evitions exceeds tha mean total number of houing units in most counties, 
-accounting for the fact that tototal housign units have been sclaed by 1000.
+accounting for the fact that total housing units have been sclaed by 1000.
 what this tells us is that evictions far exceed total housing stiock. And because
-this variabke does not separate rental units from mortaged homes. The graph is 
+this variable does not separate rental units from mortaged homes. The graph is 
 alarming, signially a possible overuse of evictions in our state. As can be seen
 by the eviciton fillings graph, the numbers beocme even more stark. Glouster, 
 Camden and mercer counties have the highest eiction rates where as, Exssex, 
 Cumberland, and Mercer coutniesh ave the highest eviction filings rates. Even 
 though evictionrate shave decreased from 2008 - 2016, New jersey counties 
-still have soem work to do. However, when we look at evenciton filign rates we 
+still have some work to do. However, when we look at evenciton filign rates we 
 we the complete opposite outcomes. evcitions filling have drastically increased
 from 2008-2016. This coul be explianed by both desmoind and stens work regaring 
 the use of evictions as a safe haven for homeowners. */
@@ -870,7 +876,6 @@ est store `dv'_pp
 }
 est tab evictionfilingrate*, b(%9.2f) star							
 
-
 foreach dv of varlist eviction*{
 reg `dv' pctafam 
 est store `dv'_r 
@@ -928,8 +933,8 @@ foreach ev in `_countyid'{
   }
 }
 
-/* Being white decreases evictons and decreases the amoutn of renter occupied 
-homes. Howeverbeing anything other thanwhite has teh complete opposite effects. 
+/* Being white decreases evictins and decreases the amount of renter occupied 
+homes. However, being anything other than white has the complete opposite effects. 
 Still, being african american the eviction rates and percentage of renter occupied
 home slopes increase much much faster. Just as Desmond, Stein  and Dwyers work
 suggest, racial segregation is correlated with raial segregation. addressing 
@@ -937,7 +942,7 @@ both are critical to sustainable change in the housing market. Though the rates
 seem to be more significantly correlated, with an increase in speficic racial 
 profiles of the population. Black and white racial groups are complete polar 
 opposites with hsipanic populations not far behind. Race is a significant
-predictor of evicitions and eviciton filing rates. However, house hold income 
+predictor of evicitions and eviciton filing rates. However, household income 
 has been shown to be a mitigating factor. */ 						
 ////////////////////////////////////////////////
 /////	      Question 4 Analysis	      /////
@@ -1062,12 +1067,12 @@ summarize `housing' if countyid==34021
 local housing evictionfilingrate medianpropertyvalue medianhouseholdincome 
 reg `housing' if countyid==34021 
 
-/*After assessing all of the housing data, we find that propoerty vale and 
+/*After assessing all of the housing data, we find that propoerty value and 
 median household income do impact the rate of evictions, however when we assess
-thos eimpacts in the counties that suffer the most, we find no significant values.
+those impacts in the counties that suffer the most, we find no significant values.
 These findings point to the the work of afrmetioned scholars that the state
 of evictions over all is  structural issue and one that has gone under the radar 
-in our conversations around housing, relatte, and racial inequality. What is 
+in our conversations around housing, real estate, and racial inequality. What is 
 even more concerning is the impact that these issues have on communties of color
 with a possible ressesion on the horizon. Future research should investigate the
 current housing market through a qualitative study on those who live in these
