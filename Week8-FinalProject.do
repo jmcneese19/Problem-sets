@@ -32,6 +32,8 @@ Research Questions:
 3. What is the extent of Race as a significant predictor of evictions 
 4. How do these findings effect home values in NJ counties  
 
+//could add specific hypotheses!
+
 Data Sets: 
 1- Eviction Lab at princton University NJ county level data from 2008-2016
 (https://data-downloads.evictionlab.org/)
