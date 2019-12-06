@@ -1074,9 +1074,10 @@ These findings point to the the work of afrmetioned scholars that the state
 of evictions over all is  structural issue and one that has gone under the radar 
 in our conversations around housing, real estate, and racial inequality. What is 
 even more concerning is the impact that these issues have on communties of color
-with a possible ressesion on the horizon. Future research should investigate the
-current housing market through a qualitative study on those who live in these
-hardest hit counties in new jersey. *\
+with a possible ressesion on the horizon. All hypothesis were supported by this 
+research, which signals teh importantce of studying race. Future research should 
+investigate the current housing market through a qualitative study on those who 
+live in these hardest hit counties in new jersey. *\
 //----------------------------PROGRAM ENDS---------------------------------------------
 //----------------------------PROGRAM ENDS---------------------------------------------
 //----------------------------PROGRAM ENDS---------------------------------------------
